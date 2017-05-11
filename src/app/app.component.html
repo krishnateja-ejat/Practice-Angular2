@@ -1,3 +1,45 @@
-<h1>
-  {{title}}
-</h1>
+<body class="container">
+<br><br>
+<div class="row">
+  <form name = "DetailsForm">
+    <div id="panel">
+      <table align="center" cellpadding="10">
+        <tr><td>First Name :</td><td><input class="form-control" id="fname" type="text"  required placeholder="Enter the Firstt name"  autofocus/></td></tr>
+        <tr><td>Last Name:</td><td><input class="form-control" id="lname" type="text" title="Minimum 5 letters" required placeholder="Enter the last Name" pattern="[a-zA-Z]{5,}" autofocus/></td></tr>
+        <tr><td>Street:</td><td><input class="form-control" id="street" type="text" required placeholder="Enter the Street" autofocus/></td></tr>
+        <tr><td>City:</td><td><input class="form-control" id="city" type="text" required placeholder="Enter the City" autofocus/></td></tr>
+        <tr><td>State:</td><td><input class="form-control" id="stat" type="text" required placeholder="Enter the State" autofocus/></td></tr>
+
+        <tr><td><button id="btn" type="button" class="btn btn-success" (click)="add_values()">Submit</button></td></tr>
+      </table>
+    </div>
+  </form>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let det of arr; let i= index">
+    <td>{{det.first_name}}</td>
+    <td>{{det.last_name}}</td>
+    <td>{{det.stree}}</td>
+    <td>{{det.cit}}</td>
+    <td>{{det.sta}}</td>
+    <td> <button type="button" class="btn btn-default btn-sm" (click)="del(i)">
+      <span class="glyphicon glyphicon-remove"></span> Remove
+    </button>
+      <button type="button" class="btn btn-default btn-sm" (click)="edit(i)">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
